@@ -127,7 +127,7 @@ body {
 
 /* Side Navigation */
 .side-nav {
-  position: absolute;
+  position: fixed;
   left: 50px;
   top: 50%;
   transform: translateY(-50%);
@@ -197,3 +197,64 @@ body {
   color: #ccc;
   z-index: 2;
 }
+.text-section{
+  display: flex;
+   gap: 40px;
+   margin: 50px 200px;
+   padding-bottom: 50px;
+  border-bottom: #2f2e2ebf solid 1px;
+   
+}
+.box-1{
+  width: 42%;
+  font-size: 35px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 80px;
+
+}
+.box-2{
+  width: 60%;
+  font-size: 22px;
+  font-weight: 400;
+  text-transform: none;
+  margin-top: 0px;
+}
+.text-visions{
+background: #2354e658;
+border-left: #4141f4  solid 5px;
+padding: 7px 20px;
+}
+.text-color{
+  color: #4141f4;
+  font-weight: 600;
+}
+/* what i do section start from here */
+.text-1 {
+  color: gray;
+  font-weight: 550;
+  text-align: center;
+}
+.text-2{
+  width: 50%;
+  text-align: center;
+  line-height: 1.6;
+  margin: auto;
+  font-size: 18px;
+  color: #edebeb;
+  margin-top: 15px;
+}
+    
+.container {
+ padding: 50px 200px;
+  position:relative;
+ 
+    
+}
+  
+
+ 
+
+ 
+
+ 
