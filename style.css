@@ -26,6 +26,26 @@ body {
 
     z-index: 1;
  }
+ @media (max-width: 768px) {
+  .glow-circle {
+    width: 100% ;
+     
+  }
+  .content {
+    width: 300px !important;
+    height: 150px !important;
+    
+  }
+  .content h1{
+    font-size: 55px !important;
+  }
+  .profile{
+    width: 60px !important;
+    height: 60px !important;
+    top: 10px;
+    right: 30px !important;
+  }
+}
  
  .circle-1{
     display: none;
@@ -205,6 +225,18 @@ body {
   border-bottom: #2f2e2ebf solid 1px;
    
 }
+@media(max-width: 768px){
+ .text-section{
+  margin: 40px !important;
+  flex-wrap: wrap !important;
+ }
+ .box-1{
+  width: 100% !important;
+ }
+ .box-2{
+  width: 100% !important;
+ }
+}
 .box-1{
   width: 42%;
   font-size: 35px;
@@ -244,7 +276,14 @@ padding: 7px 20px;
   color: #edebeb;
   margin-top: 15px;
 }
-    
+    @media(max-width: 768px){
+      .container{
+        padding: 40px !important;
+      }
+      .text-2{
+        width: 80% !important;
+      }
+    }
 .container {
  padding: 50px 200px;
   position:relative;

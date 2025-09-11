@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio - John Brown</title>
   <link rel="stylesheet" href="style.css">
+   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
   <!-- Side Navigation -->
@@ -82,12 +83,17 @@ I am particularly interested in exploring new architectures and <span class="tex
     <div class="container ">
  
  <div>
-  <div><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+  <div class="relative w-10 h-10">
+    <svg class="z-4   absolute" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
   <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
-</svg></div>
+</svg>
+<div class="absolute top-0 h-10 z-2 w-10 bg-green-400">
+
+</div>
+</div>
 <p>Always seeking to expand my proficiency in emerging technologies</p>
 <p>My ability to quickly adapt and master new skills allows me to effectively tackle complex technical challenges and deliver innovative solutions.</p>
-<div>
+<div class="flex ">
   <button>FRONT-END DEVELOPMENT</button>
   <button>DIGITAL DEVELOPMENT</button>
 </div>
