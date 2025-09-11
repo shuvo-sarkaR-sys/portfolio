@@ -1,4 +1,4 @@
-/* Reset */
+@import "tailwindcss";
 * {
   margin: 0;
   padding: 0;
@@ -155,7 +155,7 @@ body {
    justify-content: center;
   flex-direction: column;
   gap: 15px;
-  z-index: 3;
+  z-index: 999;
 }
 
 .side-nav button {
@@ -278,7 +278,7 @@ padding: 7px 20px;
 }
     @media(max-width: 768px){
       .container{
-        padding: 40px !important;
+        padding: 30px !important;
       }
       .text-2{
         width: 80% !important;
@@ -286,11 +286,17 @@ padding: 7px 20px;
     }
 .container {
  padding: 50px 200px;
-  position:relative;
- 
+
     
 }
+.container div{
+  padding:20px;
+}
+.btn-2{
+  padding: 10px 20px;
   
+}
+ 
 
  
 
