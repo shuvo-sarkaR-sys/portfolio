@@ -1,10 +1,5 @@
 @import "tailwindcss";
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+ 
 body {
   background: #18181B;
   color: #fff;
@@ -278,28 +273,62 @@ padding: 7px 20px;
 }
     @media(max-width: 768px){
       .container{
-        padding: 30px !important;
+        margin: 30px auto !important;
+        width: 90% !important;
       }
       .text-2{
         width: 80% !important;
       }
+      .img-10{
+        margin-left: 0px !important;
+      }
     }
 .container {
- padding: 50px 200px;
+ width:80%;
+  margin: 50px auto;
 
     
 }
-.container div{
-  padding:20px;
+.container .div-1{
+  padding: 80px 40px;
+  width: 100%;
 }
-.btn-2{
-  padding: 10px 20px;
+.box-3  button{
+  padding: 10px  ;
+  width: 50%;
   
 }
+.inner-container{
+  
+  margin-top: 50px;
+}
+.box-3{
+  padding: 0px !important;
+  margin: 50px 0px 0px 0px !important;
+}
  
+
+ .img-10{
+  margin-left: -50px;
+ }
 
  
 
  
+ .swiper-pagination-bullet {
+      display: none !important;
+    }
+       /* Base button style */
+    .custom-pagination button {
+      @apply px-3 py-1 rounded-lg text-sm font-medium bg-white text-black transition shadow-md;
+    }
 
- 
+    /* Hover effect */
+    .custom-pagination button:hover {
+      @apply bg-pink-500 text-white;
+    }
+
+    /* Active state */
+    .custom-pagination .swiper-pagination-bullet-active {
+      @apply bg-pink-600 text-white;
+    }
