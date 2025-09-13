@@ -315,20 +315,35 @@ padding: 7px 20px;
  
 
  
- .swiper-pagination-bullet {
-      display: none !important;
+  
+      
+    /* Hide default dots */
+    .swiper-pagination-bullet {
+      display: block;
     }
-       /* Base button style */
-    .custom-pagination button {
-      @apply px-3 py-1 rounded-lg text-sm font-medium bg-white text-black transition shadow-md;
-    }
+
+ .custom-pagination button {
+ height: 35px; 
+ width: 20%;
+  padding: 6px 10px;
+  border-radius: 0.5rem;       
+  background-color: transparent;   /* 👈 Add this */
+  color: white;              /* Black text so it’s visible on white */
+  font-weight: 500;
+  transition: all 0.3s ease; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
 
     /* Hover effect */
     .custom-pagination button:hover {
-      @apply bg-pink-500 text-white;
+      background-color: rgba(128, 128, 128, 0.545);  
+      color: #fff;
     }
 
     /* Active state */
     .custom-pagination .swiper-pagination-bullet-active {
-      @apply bg-pink-600 text-white;
+      background-color: rgba(128, 128, 128, 0.326);  
+      color: #fff;
     }
+ 
+  

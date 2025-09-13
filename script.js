@@ -23,17 +23,17 @@
     btn2.classList.add("bg-fuchsia-600", "text-white");
     btn1.classList.remove("bg-fuchsia-600", "text-white");
   });
-   const swiper = new Swiper(".mySwiper", {
-      loop: true,
-      autoplay: {
-        delay: 3000,
-      },
-      pagination: {
-        el: ".custom-pagination",
-        clickable: true,
-        renderBullet: function (index, className) {
-          const labels = ["Restaurant Website", "Ecommerce Website", "Dashboard"];
-          return `<button class="${className}">${labels[index]}</button>`;
-        },
-      },
-    });
+const swiper = new Swiper(".mySwiper", {
+  loop: true,
+  autoplay: {
+    delay: 3000,
+  },
+  pagination: {
+    el: ".custom-pagination",
+    clickable: true,
+    renderBullet: function (index, className) {
+      const labels = ["Restaurant Website", "Landing Page", "Dashboard"];
+      return `<button class="${className} ">${labels[index]}</button>`;
+    },
+  },
+});
