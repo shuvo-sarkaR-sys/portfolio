@@ -26,14 +26,42 @@
 const swiper = new Swiper(".mySwiper", {
   loop: true,
   autoplay: {
-    delay: 3000,
+    delay: 4000,
   },
   pagination: {
     el: ".custom-pagination",
     clickable: true,
     renderBullet: function (index, className) {
-      const labels = ["Restaurant Website", "Landing Page", "Dashboard"];
+      const labels = ["Restaurant Website", "Landing Page", "Business website"];
       return `<button class="${className} ">${labels[index]}</button>`;
     },
   },
 });
+ // Counter Animation
+  document.querySelectorAll(".counter").forEach(counter => {
+    const target = +counter.dataset.target;
+    let count = 0;
+    const speed = 150;
+    const increment = target / speed;
+
+    const animate = () => {
+      count += increment;
+      if (count < target) {
+        counter.textContent =   Math.floor(count);
+        requestAnimationFrame(animate);
+      } else {
+        counter.textContent =   target;
+      }
+    };
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animate();
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.6 });
+
+    observer.observe(counter);
+  });
