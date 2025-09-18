@@ -166,3 +166,21 @@ window.addEventListener("scroll", () => {
     }
   });
 });
+// skill animation start from here
+ const skillsSection = document.getElementById('skills-section');
+    const progressBars = document.querySelectorAll('.progress-bar');
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          progressBars.forEach(bar => {
+            const progress = bar.getAttribute('data-progress');
+            bar.style.width = progress + '%';
+          });
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(skillsSection);

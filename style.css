@@ -430,3 +430,7 @@ padding: 7px 20px;
   .custom-pagination-3 .swiper-pagination-bullet-active {
     border-color: #db2777 !important; /* Tailwind pink-600 */
   }
+  /* Skill Animation */
+   .progress-bar {
+      transition: width 1s ease-out;
+    }
