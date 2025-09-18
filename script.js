@@ -1,7 +1,19 @@
  window.onload = () => {
       document.getElementById("fadeBtn").classList.add("show");
       document.querySelector(".profile").classList.add("show");
+     
     };
+      const elements = document.querySelectorAll(".left-animation, .right-animation, .bottom-animation");
+
+    const observer1 = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        } 
+      });
+    }, { threshold: 0.2 });
+
+    elements.forEach(el => observer1.observe(el));
  const btn1 = document.getElementById("btn-1");
   const btn2 = document.getElementById("btn-2");
   const img1 = document.getElementById("inner-box");

@@ -102,6 +102,7 @@ html,body {
     object-fit: cover;
     cursor: pointer;
     transition: ease-in-out 2s;
+     
  }
 .content h1 {
   font-family: sans-serif;
@@ -116,7 +117,25 @@ html,body {
       opacity: 1;
       transform: translateY(0);
     }
-
+.left-animation {
+  opacity: 0;
+      transform: translateX(-150px);
+      transition: opacity 1.5s ease, transform 1.5s ease;
+}
+.right-animation {
+  opacity: 0;
+      transform: translateX(150px);
+      transition: opacity 1.5s ease, transform 1.5s ease;
+}
+.bottom-animation {
+  opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1.2s ease, transform 1.5s ease;
+}
+.left-animation.show, .right-animation.show, .bottom-animation.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
 .profile {
   width: 100px;
   height: 100px;
@@ -285,7 +304,7 @@ html,body {
 }
 @media(max-width: 768px){
  .text-section{
-  margin: 40px !important;
+  margin: 20px !important;
   flex-wrap: wrap !important;
  }
  .box-1{
