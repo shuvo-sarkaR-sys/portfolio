@@ -184,3 +184,24 @@ window.addEventListener("scroll", () => {
     );
 
     observer.observe(skillsSection);
+    const btn3 = document.getElementById("btn-3");
+  const btn4 = document.getElementById("btn-4");
+  const box1 = document.getElementById("box-3");
+  const box2 = document.getElementById("box-4");
+ 
+  btn3.addEventListener("click", () => {
+    box1.classList.remove("hidden");
+    box2.classList.add("hidden");
+
+    btn3.classList.add("bg-white/20", "text-white");
+    btn4.classList.remove("bg-white/20", "text-white");
+  });
+
+  btn4.addEventListener("click", () => {
+    box2 .classList.remove("hidden");
+    box2.classList.add("flex");
+    box1.classList.add("hidden");
+
+    btn4.classList.add("bg-white/20", "text-white");
+    btn3.classList.remove("bg-white/20", "text-white");
+  });
