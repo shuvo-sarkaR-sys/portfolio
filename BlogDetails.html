@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Details</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-100 p-6">
+
+  <div id="blog" class="w-[80%] mx-auto bg-white p-6 rounded shadow"></div>
+
+  <script>
+    // Get blog id from URL
+    const params = new URLSearchParams(window.location.search);
+    const blogId = params.get("id");
+
+    async function loadBlog() {
+      try {
+        const res = await fetch(`https://blog-manage-backend.vercel.app/api/posts/${blogId}`);
+        if (!res.ok) throw new Error("Failed to fetch blog");
+
+        const post = await res.json();
+
+        const blogDiv = document.getElementById("blog");
+        blogDiv.innerHTML = `
+                 ${post.image ? `<img src="${post.image}" class="w-[80%] rounded-xl h-[500px] object-cover mb-2"/>` : ""}
+                          <h1 class="text-3xl mt-10 font-bold text-black-600 mb-4">${post.title}</h1>
+
+          <p class="text-gray-700 whitespace-pre-line">${post.content}</p>
+        `;
+      } catch (err) {
+        console.error(err);
+        document.getElementById("blog").innerHTML = `<p class="text-red-600">Error loading blog details.</p>`;
+      }
+    }
+
+    loadBlog();
+  </script>
+</body>
+</html>
