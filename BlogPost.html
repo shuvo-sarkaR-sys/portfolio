@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Posts</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="p-6">
+
+  <!-- Blog Post Form -->
+  <form id="postForm" enctype="multipart/form-data" class="space-y-4 mt-14 xl:w-[60%] w-full mb-8">
+    <input type="text" name="title" placeholder="Title" class="border border-gray-700 p-2 w-full" required>
+    <textarea name="content" placeholder="Content" class="border border-gray-700 p-2 w-full" required></textarea>
+    <input type="file" name="image" class="border border-gray-700 p-2 w-full">
+    <button class="bg-blue-500 text-white px-6 py-2 rounded">Post</button>
+  </form>
+
+  <!-- Blog Post List -->
+  <div id="postsContainer" class="space-y-14 mt-14 w-full xl:w-[60%]"></div>
+
+  <script>
+    const postsContainer = document.getElementById("postsContainer");
+
+    // Fetch and display posts
+    async function loadPosts() {
+      postsContainer.innerHTML = "";
+      const res = await fetch("https://blog-manage-backend.vercel.app/api/posts");
+      const posts = await res.json();
+
+      posts.forEach(post => {
+        const div = document.createElement("div");
+        div.className = "border border-gray-700 p-4 rounded shadow";
+
+        div.innerHTML = `
+                  ${post.image ? `<img src="${post.image}" class="w-full mb-2"/>` : ""}
+          <h2 class="text-xl font-bold">${post.title}</h2>
+          <p class="mb-2">${post.content}</p>
+           <div class="space-x-2">
+            <button onclick="deletePost('${post._id}')" class="bg-red-500 text-white px-3 py-1 rounded">Delete</button>
+            <button onclick="updatePost('${post._id}')" class="bg-yellow-500 text-white px-3 py-1 rounded">Update</button>
+          </div>
+        `;
+
+        postsContainer.appendChild(div);
+      });
+    }
+
+    // Create post
+    document.getElementById("postForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+
+      await fetch("https://blog-manage-backend.vercel.app/api/posts", {
+        method: "POST",
+        body: formData
+      });
+
+      e.target.reset();
+      loadPosts();
+    });
+
+    // Delete post
+    async function deletePost(id) {
+      await fetch(`https://blog-manage-backend.vercel.app/api/posts/${id}`, {
+        method: "DELETE"
+      });
+      loadPosts();
+    }
+
+    // Update post (simple prompt version)
+    async function updatePost(id) {
+      const newTitle = prompt("Enter new title:");
+      const newContent = prompt("Enter new content:");
+
+      if (!newTitle || !newContent) return;
+
+      await fetch(`https://blog-manage-backend.vercel.app/api/posts/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title: newTitle, content: newContent })
+      });
+
+      loadPosts();
+    }
+
+    // Initial load
+    loadPosts();
+  </script>
+</body>
+</html>

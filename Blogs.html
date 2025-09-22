@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs - Nahid Hasan</title>
+
+  <link rel="icon" type="image/x-icon" href="assets/Nahid-Vai-1024x1024.jpg">
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 ">
+
+  <h1 class="text-3xl font-bold mt-6 text-center mb-6">All Blog</h1>
+
+  <!-- Posts container -->
+  <div id="posts" class=" space-y-5 gap-10  px-10 flex-wrap bg-zinc-800 flex m-auto  py-10 w-[90%] xl:w-[80%]"></div>
+
+  <script>
+    // ✅ Fetch and render all posts
+    async function loadPosts() {
+      try {
+        const res = await fetch("https://blog-manage-backend.vercel.app/api/posts");
+        if (!res.ok) throw new Error("Failed to fetch posts");
+
+        const posts = await res.json();
+        const postsDiv = document.getElementById("posts");
+        postsDiv.innerHTML = "";
+
+        if (posts.length === 0) {
+          postsDiv.innerHTML = `<p class="text-gray-500">No blog posts yet.</p>`;
+          return;
+        }
+
+        posts.forEach(post => {
+          postsDiv.innerHTML += `
+            <a href="blogDetails.html?id=${post._id}" class="  xl:w-[30%] w-full h-[420px]">
+    <div class="  p-4 rounded border border-gray-700 shadow">
+                ${post.image ? `<img src="${post.image}" class="w-full h-[300px] object-cover mb-2"/>` : ""}
+                <h2 class="text-xl line-clamp-2 font-bold text-blue-600">${post.title}</h2>
+
+                <p class="text-white line-clamp-2">${post.content}</p>
+
+              </div>
+            </a>
+          `;
+        });
+      } catch (err) {
+        console.error(err);
+        document.getElementById("posts").innerHTML = `<p class="text-red-600">Error loading posts</p>`;
+      }
+    }
+
+    
+
+    // Load posts when page loads
+    loadPosts();
+  </script>
+
+</body>
+</html>
