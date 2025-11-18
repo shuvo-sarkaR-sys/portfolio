@@ -44,7 +44,7 @@ const swiper = new Swiper(".mySwiper", {
     el: ".custom-pagination",
     clickable: true,
     renderBullet: function (index, className) {
-      const labels = ["E-commerce site", "Landing page", "Castle Restaurant", "Portfolio"];
+      const labels = ["E-commerce", "Landing page", "Restaurant", "Portfolio"];
       return `<button class="${className} ">${labels[index]}</button>`;
     },
   },
