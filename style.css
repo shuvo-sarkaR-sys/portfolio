@@ -377,6 +377,15 @@ padding: 7px 20px;
   padding: 80px 40px;
   width: 100%;
 }
+@media(max-width: 768px){
+  .container .div-1{
+    padding: 40px 20px !important;
+  }
+  .inner-container{
+  
+  margin-top: 30px !important;
+}
+}
 .box-3  button{
   padding: 10px  ;
   width: 50%;
