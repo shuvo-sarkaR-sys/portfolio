@@ -217,3 +217,18 @@ window.addEventListener("scroll", () => {
     btn4.classList.add("bg-white/20", "text-white");
     btn3.classList.remove("bg-white/20", "text-white");
   });
+  document.getElementById("box-4").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(e.target);
+  const data = Object.fromEntries(formData.entries());
+
+  const res = await fetch("https://blog-manage-backend.vercel.app/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  const result = await res.json();
+  alert(result.message);
+});
