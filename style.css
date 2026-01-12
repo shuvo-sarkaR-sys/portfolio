@@ -35,6 +35,7 @@ html,body {
   .content h1{
     font-size: 55px !important;
     text-align: center;
+    opacity: 1 !important;
   }
   .profile{
     width: 60px !important;
@@ -42,6 +43,7 @@ html,body {
     right: 120px !important;
     top: -40px !important;
     margin: auto !important;
+    opacity: 1 !important;
   }
 }
  
