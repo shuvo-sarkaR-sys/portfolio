@@ -91,7 +91,7 @@ const swiper3 = new Swiper(".mySwiper3", {
         ];
         return `
           <button class="${className} overflow-hidden rounded-lg border-2 border-transparent hover:border-fuchsia-500 transition">
-            <img src="${thumbs[index]}" class="w-20 h-20 object-cover " />
+            <img src="${thumbs[index]}" alt='thumnils' class="w-20 h-20 object-cover " />
           </button>`;
       },
     },
