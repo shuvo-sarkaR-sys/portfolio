@@ -17,7 +17,10 @@
 
   <!-- Posts container -->
   <div id="posts" class=" space-y-5 gap-10  px-10 flex-wrap bg-zinc-800 flex m-auto  py-10 w-[90%] xl:w-[80%]"></div>
-
+ <!-- Loader -->
+  <div id="loader" class="w-full flex justify-center items-center py-20">
+    <div class="w-10 h-10 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+  </div>
   <script>
     // ✅ Fetch and render all posts
     async function loadPosts() {
@@ -27,7 +30,13 @@
 
         const posts = await res.json();
         const postsDiv = document.getElementById("posts");
-        postsDiv.innerHTML = "";
+        // Show loader
+  postsDiv.innerHTML = `
+    <div class="w-full flex justify-center items-center py-20">
+      <div class="w-10 h-10 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+    </div>
+  `;
+       
 
         if (posts.length === 0) {
           postsDiv.innerHTML = `<p class="text-gray-500">No blog posts yet.</p>`;
